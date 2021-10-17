@@ -1,0 +1,50 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.video{
+    max-height: 60rem;
+    overflow: hidden;
+    position: relative;
+
+    .overlay{
+        align-items: center;
+        display: flex;
+        background: linear-gradient(270deg, rgba(146,0,255,0.5) 0%, rgba(255,4,156,0.3) 100%);
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+    }
+
+    video{
+        display: block;
+        max-width: 170%;
+        @include m.tablet{
+            max-width: 100%;
+        }
+    }
+}
+
+.contenido-video{
+    h2{
+        color: v.$blanco;
+        font-size: 4rem;
+        margin: 0;
+        @include m.tablet{
+            font-size: 7rem;
+        }
+    }
+
+    P{
+        background-color: v.$rosa;
+        color: v.$blanco;
+        display: inline-block;
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin: 0;
+        padding: 1rem 2rem;
+        @include m.tablet{
+            font-size: 2.4rem;
+        }
+    }
+}
