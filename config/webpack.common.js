@@ -13,14 +13,14 @@ module.exports = {
     },
     module: {
         rules: [
-            // {
-            //     test: /\.html$/i,
-            //     // entry: '/src/index.html',
-            //     loader: "html-loader",
-            //     // options: {
-            //     //     sources: false
-            //     // }
-            // },
+            {
+                test: /\.html$/i,
+                // entry: '/src/index.html',
+                loader: "html-loader",
+                // options: {
+                //     sources: false
+                // }
+            },
             // {
             //     test: /\.(jpe?g|png|gif|svg|avif|webp)$/i,
             //     type: "asset/resource",

@@ -1,8 +1,10 @@
 @use 'variables' as v;
+@use 'mixins' as m;
 
 html{
     font-size: 62.5%;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 *,
 *:before,
@@ -12,6 +14,14 @@ html{
 body{
     font-family: v.$fuente_principal;
     font-size: 1.6rem;
+    &.fijar-body{
+        overflow: hidden;
+    }
+    @include m.tablet{
+        &.body-scroll{
+            padding-top: 8.6rem;
+        }
+    }
 }
 p{
     color: v.$negro;
@@ -43,3 +53,8 @@ img{
     width: 100%;
     height: auto;
 }
+@include m.tablet{
+    section[id]{
+        scroll-margin-top: 8rem;
+    }
+} 

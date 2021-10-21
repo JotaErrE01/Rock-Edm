@@ -1,5 +1,6 @@
 const CopyPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { SourceMapDevToolPlugin } = require("webpack");
 const { default: merge } = require("webpack-merge");
 const common = require("./webpack.common");
 
@@ -26,7 +27,7 @@ const devConfig = {
         rules: [
             {
                 test: /\.(css|sass|scss)$/i,
-                use: ['style-loader', "css-loader", "sass-loader",]
+                use: ['style-loader', "css-loader", "sass-loader"]
             },
             // {
             //     test: /\.(css|sass|scss)$/i,
@@ -41,11 +42,13 @@ const devConfig = {
             },
         ]
     },
+    // devtool: 'eval',
     plugins: [
         // new CopyPlugin
         new MiniCssExtractPlugin({
             filename: "styles/style.css"
         }),
+        new SourceMapDevToolPlugin({})
         // new CopyPlugin({
         //     patterns: [
         //         { from: "src/assets/", to: "assets/" },

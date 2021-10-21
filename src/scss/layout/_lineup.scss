@@ -17,16 +17,19 @@
 }
 
 .escenarios-contenedor{
+    .escenario:nth-child( odd ){ //impares
+        margin-bottom: 2rem;
+    }
     @include m.tablet{
         @include m.grid(2, 5rem);
+        .escenario{
+            margin-bottom: 0!important;
+        }
     }
     p{
         color: v.$negro;
     }
-
-    .escenario:nth-child( odd ){ //impares
-        margin-bottom: 2rem;
-    }
+    
 }
 
 .escenario{

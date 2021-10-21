@@ -7,14 +7,14 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 const prodConfig = {
     mode: 'production',
-    // output: {
-    //     assetModuleFilename: (pathData) => {
-    //         // if (pathData?.filename.includes('.jpg') || pathData?.filename.includes('.webp')) {
-    //         //     return 'assets/images/[hash][ext][query]';
-    //         // }
-    //         return 'assets/videos/[hash][ext][query]';
-    //     }
-    // },
+    output: {
+        assetModuleFilename: (pathData) => {
+            // if (pathData?.filename.includes('.jpg') || pathData?.filename.includes('.webp')) {
+            //     return 'assets/images/[hash][ext][query]';
+            // }
+            return 'assets/videos/[hash][ext][query]';
+        }
+    },
     module: {
         rules: [
             {
@@ -37,7 +37,7 @@ const prodConfig = {
                 test: /\.(jpe?g|png|gif|svg|avif|webp)$/i,
                 type: "asset/resource",
                 generator: {
-                    filename: 'assets/images/[name][ext][query]'
+                    filename: 'assets/images/[hash][ext][query]'
                 }
             },
         ]
@@ -47,12 +47,12 @@ const prodConfig = {
         new MiniCssExtractPlugin({
             filename: "styles/[hash].css"
         }),
-        new CopyPlugin({
-            patterns: [
-                { from: "public/assets/", to: "assets/" },
-                // { from: "other", to: "public" },
-            ],
-        }),
+        // new CopyPlugin({
+        //     patterns: [
+        //         { from: "public/assets/", to: "assets/" },
+        //         // { from: "other", to: "public" },
+        //     ],
+        // }),
         // new ImageMinimizerPlugin({
         //     // test: /\.(jpe?g|png|gif|svg)$/i,
         //     minimizerOptions: {
